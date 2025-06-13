@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    // Declaração de variáveis
+    char nome[100];     // Armazena o nome do usuário
+    int idade;          // Armazena a idade
+    int ingresso;       // Armazena se a pessoa tem ingresso (1 = Sim, 0 = Não)
+
+    // Coletando dados do usuário
+    printf("Digite seu nome: ");
+    scanf(" %[^\n]", nome);  // Lê o nome completo (com espaços)
+
+    printf("Digite sua idade: ");
+    scanf("%d", &idade);
+
+    printf("Você possui ingresso? (1 para Sim, 0 para Não): ");
+    scanf("%d", &ingresso);
+
+    // Verificação de acesso
+    if (idade >= 18 && ingresso == 1) {
+        // Se a pessoa tem 18 anos ou mais e tem ingresso
+        printf("Bem-vindo(a) ao evento, %s!\n", nome);
+    } else if (idade < 18) {
+        // Se a pessoa é menor de idade
+        printf("Entrada não permitida para menores de idade.\n");
+    } else if (ingresso == 0) {
+        // Se a pessoa não tem ingresso
+        printf("É necessário possuir ingresso para entrar.\n");
+    } else {
+        // Caso algum dado esteja fora do esperado
+        printf("Dados inválidos.\n");
+    }
+
+    return 0;
+}
